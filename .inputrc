@@ -1,0 +1,3 @@
+# Added by JCB
+set show-mode-in-prompt on           # show vi mode in prompt (since Bash 4.4 / Readline 7.0)
+set bell-style visible               # disable beep
