@@ -1,6 +1,8 @@
 # show vi mode in prompt (since Bash 4.4 / Readline 7.0)
 set editing-mode vi
 set show-mode-in-prompt on
+set vi-ins-mode-string "+"
+set vi-cmd-mode-string ":"
 
 # disable beep
 set bell-style visible
