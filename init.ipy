@@ -1,0 +1,27 @@
+# Copy into .ipython/profile_default/startup
+# To reload this file, just type in ipython: %run this file
+
+# Custom Alias
+%alias_magic h history
+%alias ll ls -a -F -l -G
+%alias c clear
+
+# Custom pandas options
+import pandas as pd
+pd.set_option('display.max_rows', 15)
+pd.set_option('display.max_columns', 0)
+
+# Custom Prompt
+from IPython.terminal.prompts import Prompts, Token
+import os
+import socket
+import getpass
+
+class MyPrompt(Prompts):
+    def in_prompt_tokens(self, cli=None):
+        return [(Token.Prompt, getpass.getuser() + '@' + socket.gethostname() + ':'), (Token, os.getcwd()), (Token.Prompt, '\n')] + Prompts.in_prompt_tokens(self, cli)
+
+
+ip = get_ipython()
+ip.prompts = MyPrompt(ip)
+
